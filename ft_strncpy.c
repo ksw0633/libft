@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 10:37:00 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/10 02:04:17 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/03/10 02:12:59 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	if (!dst || !src)
 		return (NULL);
 	i = 0;
-	while (i < len && src[i] && dst[i])
+	while (i < len && src[i])
 	{
 		dst[i] = src[i];
 		i++;
 	}
 	if (!src[i] && i != len)
 	{
-		while (i < len && dst[i])
+		while (i < len)
 		{
 			dst[i] = '\0';
 			i++;
