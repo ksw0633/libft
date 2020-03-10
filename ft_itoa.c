@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 13:15:08 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/05 15:34:40 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/03/09 23:46:17 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,11 @@ char			*ft_itoa(int n)
 
 	if (!n)
 	{
-		rv = (char *)malloc(sizeof(char));
-		*rv = '0';
+		rv = (char *)malloc(sizeof(char) * 2);
+		if (!rv)
+			return (NULL);
+		rv[0] = '0';
+		rv[1] = '\0';	
 		return (rv);
 	}
 	isneg = 0;
@@ -78,6 +81,8 @@ char			*ft_itoa(int n)
 	if (isneg == 1)
 		len++;
 	rv = (char *)malloc(sizeof(char) * len);
+	if (!rv)
+		return (NULL);
 	len--;
 	find_nbr(rv, n, isneg, len);
 	rev_str(rv, len);

@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 19:16:05 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/04 14:17:23 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/03/09 23:59:59 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct	s_list_mine
 	char				*str;
 	struct s_list_mine	*next;
 }				t_list_str;
+
+int				ft_isspace(int c);
 t_list_str		*ft_push(t_list_str *start);
 t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));

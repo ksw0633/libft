@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 20:20:30 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/09 23:25:04 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/03/09 23:31:38 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 
 	if (!lst || !f)
 		return (NULL);
-	if(!(rv = f(lst)))
+	if (!(rv = f(lst)))
 		return (NULL);
 	current = rv;
 	while (lst->next != NULL)

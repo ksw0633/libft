@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:17:57 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/09 16:26:08 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/03/09 23:48:47 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	{
 		i = 0;
 		return_value = (char *)malloc(ft_strlen(s) + 1);
+		if (!return_value)
+			return (NULL);
 		temp = return_value;
 		while (*s)
 		{
@@ -30,6 +32,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 			s++;
 			temp++;
 		}
+		*temp = '\0';
 		return (return_value);
 	}
 	else
