@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 18:46:19 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/09 16:20:37 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/03/09 22:41:54 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*ft_strsub(char const *s1, unsigned int start, size_t len)
 			s1++;
 			len--;
 		}
+		*return_value = '\0';
 		return (init_return);
 	}
 	else
