@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:57:45 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/09 22:37:40 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/03/09 22:45:55 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	unsigned long	i;
 	size_t			return_value;
 
-	if (!dst || !src || !dstsize)
-		return (0);
+	if (!dst || !src)
+		return (ft_strlen(src) + dstsize);
 	i = 0;
 	return_value = ft_strlen(dst) + ft_strlen(src);
 	if (!dstsize || ft_strlen(dst) > dstsize)
