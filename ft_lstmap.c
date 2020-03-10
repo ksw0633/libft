@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 20:20:30 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/09 23:11:39 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/03/09 23:12:25 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 		lst = lst->next;
 		current = current->next;
 	}
-	return (return_value);
+	return (rv);
 }
