@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 13:15:08 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/10 02:03:50 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/03/10 02:01:04 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,41 +59,41 @@ static void		rev_str(char *str, int len)
 	}
 }
 
-static char     *make_zero(char *rv)
+static char		*make_zero(char *rv)
 {
-    rv = (char *)malloc(sizeof(char) * 2);
-    if (!rv)
-        return (NULL);
-    rv[0] = '0';
-    rv[1] = '\0';
-    return (rv);
+	rv = (char *)malloc(sizeof(char) * 2);
+	if (!rv)
+		return (NULL);
+	rv[0] = '0';
+	rv[1] = '\0';
+	return (rv);
 }
 
-char            *ft_itoa(int n)
+char			*ft_itoa(int n)
 {
-    int         isneg;
-    int         len;
-    char        *rv;
+	int			isneg;
+	int			len;
+	char		*rv;
 
-    rv = NULL;
-    if (!n)
-    {
-        if (!(rv = make_zero(rv)))
-            return (NULL);
-        return (rv);
-    }
-    isneg = 0;
-    if (n < 0)
-        isneg = 1;
-    len = find_len(n);
-    if (isneg == 1)
-        len++;
-    rv = (char *)malloc(sizeof(char) * len);
-    if (!rv)
-        return (NULL);
-    len--;
-    find_nbr(rv, n, isneg, len);
-    rev_str(rv, len);
-    *(rv + len) = 0;
-    return (rv);
+	rv = NULL;
+	if (!n)
+	{
+		if (!(rv = make_zero(rv)))
+			return (NULL);
+		return (rv);
+	}
+	isneg = 0;
+	if (n < 0)
+		isneg = 1;
+	len = find_len(n);
+	if (isneg == 1)
+		len++;
+	rv = (char *)malloc(sizeof(char) * len);
+	if (!rv)
+		return (NULL);
+	len--;
+	find_nbr(rv, n, isneg, len);
+	rev_str(rv, len);
+	*(rv + len) = 0;
+	return (rv);
 }

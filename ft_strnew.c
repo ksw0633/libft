@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 16:43:20 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/10 00:25:14 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/03/10 01:39:19 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	*ft_strnew(size_t size)
 {
-	char 	*return_value;
+	char	*return_value;
 	int		i;
 
 	i = 0;
-	size++;	
+	size++;
 	return_value = (char *)malloc(size);
 	if (!return_value)
 		return (0);
