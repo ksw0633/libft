@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 10:37:00 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/10 01:33:55 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/03/10 02:04:17 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,28 @@
 
 /*char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	char			*init_dst;
 	unsigned long	i;
-	
+
 	if (!dst || !src)
 		return (NULL);
-	init_dst = dst;
+	i = 0;
+	while (i < len && dst[i])
+	{
+		if(src[i])
+			dst[i] = src[i];
+		else
+			dst[i] = '\0';
+		i++;
+	}
+	return (dst);
+}*/
+
+char	*ft_strncpy(char *dst, const char *src, size_t len)
+{
+	unsigned long	i;
+
+	if (!dst || !src)
+		return (NULL);
 	i = 0;
 	while (i < len && src[i] && dst[i])
 	{
@@ -34,22 +50,5 @@
 			i++;
 		}
 	}
-	return (init_dst);
-}*/
-
-char	*ft_strncpy(char *s1, const char *s2, size_t n)
-{
-	size_t	i;
-	int		cpy_end;
-
-	i = 0;
-	while (i < n)
-	{
-		if (s2[i])
-			s1[i] = s2[i];
-		else
-			s1[i] = '\0';
-		i++;
-	}
-	return (s1);
+	return (dst);
 }
