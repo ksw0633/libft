@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 10:37:00 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/10 01:31:14 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/03/10 01:33:55 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,12 @@ char	*ft_strncpy(char *s1, const char *s2, size_t n)
 	int		cpy_end;
 
 	i = 0;
-	cpy_end = 0;
 	while (i < n)
 	{
-		if (s2[i] && !cpy_end)
+		if (s2[i])
 			s1[i] = s2[i];
 		else
-		{
 			s1[i] = '\0';
-			cpy_end = 1;
-		}
 		i++;
 	}
 	return (s1);
