@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 19:24:51 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/09 16:39:15 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/04/17 16:07:34 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ static char			*cpy(char *dst, const char *src, size_t len)
 	return (init_dst);
 }
 
-static char const	*check_empty(char const *s)
+static char const	*check_empty(char const *s, char *table)
 {
 	int isblank;
 
 	if (s == NULL)
 		return (NULL);
 	isblank = 1;
-	while (*s == ' ' || *s == '\n' || *s == '\t')
+	while (table[(int)(*s)])
 	{
 		s++;
 		isblank = 0;
@@ -56,16 +56,33 @@ static char const	*check_empty(char const *s)
 	return (s);
 }
 
-char				*ft_strtrim(char const *s)
+char				*checktable(char *table, char const *set)
+{
+	int i;
+
+	i = 0;
+	table = (char *)malloc(sizeof(char) * 256);
+	while (i < 256)
+		table[i++] = 0;
+	while (*set)
+	{
+		table[(int)(*set)] = 1;
+		set++;
+	}
+	return (table);
+}
+
+char				*ft_strtrim(char const *s, char const *set)
 {
 	char	*temp;
 	char	*start;
 	char	*end;
 	char	*return_value;
-	char	is_blank;
+	char	*table;
 
-	is_blank = 1;
-	if ((temp = (char *)check_empty(s)) == NULL)
+	table = NULL;
+	table = checktable(table, set);
+	if ((temp = (char *)check_empty(s, table)) == NULL)
 	{
 		return_value = (char *)malloc(sizeof(char));
 		*return_value = '\0';
@@ -75,12 +92,10 @@ char				*ft_strtrim(char const *s)
 	while (*temp++)
 		;
 	temp--;
-	while (*(temp - 1) == ' ' || *(temp - 1) == '\n' || *(temp - 1) == '\t')
+	while (table[(int)(*(temp - 1))])
 		temp--;
 	end = (char *)temp;
 	return_value = (char *)malloc(sizeof(char) * (int)(end - start) + 1);
-	if (!return_value)
-		return (NULL);
 	cpy(return_value, start, (unsigned char)(end - start));
 	return (return_value);
 }

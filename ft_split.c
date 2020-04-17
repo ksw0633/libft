@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 20:12:02 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/09 17:29:32 by sunkim           ###   ########.fr       */
+/*   Created: 2020/04/17 08:58:59 by sunkim            #+#    #+#             */
+/*   Updated: 2020/04/17 08:59:08 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int		find_len(char const *s, char c)
 	return (len);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**rv;
 	int		i;

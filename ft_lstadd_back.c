@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 10:58:26 by sunkim            #+#    #+#             */
-/*   Updated: 2020/02/25 14:05:21 by sunkim           ###   ########.fr       */
+/*   Created: 2020/04/17 11:34:59 by sunkim            #+#    #+#             */
+/*   Updated: 2020/04/17 14:14:34 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	void			*return_value;
-	unsigned char	*temp;
+	t_list *last;
 
-	return_value = malloc(size);
-	if (!return_value)
-		return (0);
-	temp = (unsigned char *)return_value;
-	while (size > 0)
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+		*lst = new;
+	else
 	{
-		*temp = 0;
-		temp++;
-		size--;
+		last = ft_lstlast(*lst);
+		last->next = new;
 	}
-	return (return_value);
+	new->next = NULL;
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/25 18:46:19 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/09 23:27:18 by sunkim           ###   ########.fr       */
+/*   Created: 2020/04/17 11:45:08 by sunkim            #+#    #+#             */
+/*   Updated: 2020/04/17 11:45:11 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s1, unsigned int start, size_t len)
+char	*ft_substr(char const *s1, unsigned int start, size_t len)
 {
 	char *return_value;
 	char *init_return;

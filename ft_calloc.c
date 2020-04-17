@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 16:57:45 by sunkim            #+#    #+#             */
-/*   Updated: 2020/04/17 11:22:34 by sunkim           ###   ########.fr       */
+/*   Created: 2020/04/17 11:33:26 by sunkim            #+#    #+#             */
+/*   Updated: 2020/04/17 11:33:31 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned long	i;
-	size_t			return_value;
+	void			*return_value;
+	unsigned char	*temp;
 
-	if (ft_strlen(dst) >= dstsize)
-		return (ft_strlen(src) + dstsize);
-	i = 0;
-	return_value = ft_strlen(dst) + ft_strlen(src);
-	dstsize -= ft_strlen(dst);
-	while (*dst)
-		dst++;
-	while (i < dstsize - 1 && src[i])
+	return_value = (void *)malloc(size * count);
+	if (!return_value)
+		return (0);
+	temp = (unsigned char *)return_value;
+	while (count > 0)
 	{
-		dst[i] = src[i];
-		i++;
+		*temp = 0;
+		temp++;
+		count--;
 	}
-	dst[i] = 0;
 	return (return_value);
 }

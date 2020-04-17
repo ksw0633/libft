@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 19:26:27 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/10 00:18:58 by sunkim           ###   ########.fr       */
+/*   Created: 2020/04/17 11:41:37 by sunkim            #+#    #+#             */
+/*   Updated: 2020/04/17 16:05:19 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+t_list	*ft_lstnew(void *content)
 {
 	t_list			*new;
 
@@ -20,17 +20,9 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	if (new == NULL)
 		return (NULL);
 	if (content == NULL)
-	{
 		new->content = NULL;
-		new->content_size = 0;
-	}
 	else
-	{
-		new->content = malloc(sizeof(content_size));
-		ft_memcpy(new->content, content, content_size);
-		new->content_size = content_size;
-	}
-	if (content != NULL)
-		new->next = NULL;
+		new->content = content;
+	new->next = NULL;
 	return (new);
 }

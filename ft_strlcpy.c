@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 19:49:57 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/09 19:45:27 by sunkim           ###   ########.fr       */
+/*   Created: 2020/04/17 11:44:26 by sunkim            #+#    #+#             */
+/*   Updated: 2020/04/17 11:44:29 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-**erases the whole list
-*/
-
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	t_list *temp;
+	unsigned int	i;
+	unsigned int	len;
 
-	if (alst && del)
+	len = ft_strlen(src);
+	if (!src || !dst)
+		return (0);
+	else if (!size)
+		return (len);
+	i = 0;
+	while (i < size - 1 && src[i])
 	{
-		while (*alst != NULL)
-		{
-			temp = (*alst)->next;
-			del((*alst)->content, (*alst)->content_size);
-			free(*alst);
-			*alst = temp;
-		}
-		*alst = NULL;
+		dst[i] = src[i];
+		i++;
 	}
+	dst[i] = 0;
+	return (len);
 }

@@ -6,17 +6,19 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 20:11:19 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/01 21:46:16 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/04/17 16:05:28 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
+	if (!lst)
+		return ;
 	while (lst != NULL)
 	{
-		f(lst);
+		f(lst->content);
 		lst = lst->next;
 	}
 }

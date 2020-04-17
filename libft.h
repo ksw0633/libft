@@ -6,7 +6,7 @@
 /*   By: sunkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 19:16:05 by sunkim            #+#    #+#             */
-/*   Updated: 2020/03/09 23:59:59 by sunkim           ###   ########.fr       */
+/*   Updated: 2020/04/17 11:53:47 by sunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,20 @@
 typedef struct	s_list
 {
 	void			*content;
-	size_t			content_size;
 	struct s_list	*next;
 }				t_list;
 
-typedef struct	s_list_mine
-{
-	char				*str;
-	struct s_list_mine	*next;
-}				t_list_str;
-
 int				ft_isspace(int c);
-t_list_str		*ft_push(t_list_str *start);
-t_list			*ft_lstnew(void const *content, size_t content_size);
-void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstadd(t_list **alst, t_list *new);
-void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-void			*ft_memalloc(size_t size);
+t_list			*ft_lstnew(void *content);
+void			ft_lstdelone(t_list *alst, void (*del)(void *));
+void			ft_lstclear(t_list **alst, void (*del)(void *));
+void			ft_lstadd_front(t_list **lst, t_list *new);
+void			ft_lstadd_back(t_list **lst, t_list *new);
+void			ft_lstiter(t_list *lst, void (*f)(void *));
+t_list			*ft_lstmap(t_list *l, void *(*f)(void *), void (*del)(void *));
+int				ft_lstsize(t_list *lst);
+t_list			*ft_lstlast(t_list *lst);
+void			*ft_calloc(size_t content, size_t size);
 void			ft_memdel(void **ap);
 char			*ft_strnew(size_t size);
 void			ft_strdel(char **as);
@@ -49,10 +44,10 @@ char			*ft_strmap(char const *s, char (*f)(char));
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strequ(char const *s1, char const *s2);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
-char			*ft_strsub(char const *s, unsigned int start, size_t len);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
-char			*ft_strtrim(char const *s);
-char			**ft_strsplit(char const *s, char c);
+char			*ft_strtrim(char const *s1, char const *set);
+char			**ft_split(char const *s, char c);
 char			*ft_itoa(int n);
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
@@ -90,5 +85,6 @@ int				ft_isascii(int c);
 int				ft_isprint(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
+size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 
 #endif
